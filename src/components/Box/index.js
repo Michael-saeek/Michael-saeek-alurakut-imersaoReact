@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Box = styled.div`
   background-color: #fff;
   border-radius: 8px;
   padding: 16px;
+
+  h2 {
+    margin-bottom: 14px;
+  }
 
   /* CSS Pré-Pronto */
   margin-bottom: 10px;
@@ -45,10 +49,35 @@ const Box = styled.div`
     margin-bottom: 14px;
     border-radius: 10000px;
     ::placeholder {
-      color: #333333;
+      color: #33333387;
       opacity: 1;
     }
   }
+
+  ${props => props.isValid === 'true' && css`
+    input {
+      border: 1px solid #0eaa23;
+      box-shadow: 0 1px 1px rgba(207, 202, 198, 0.075)inset, 0 0 4px rgba(18, 158, 41, 0.6);
+      outline: 0 none;
+    }
+  `}
+
+  ${props => props.isValid === 'false' && css`
+    input {
+      border: 1px solid #c00c0c;
+      box-shadow: 0 1px 1px rgba(207, 202, 198, 0.075)inset, 0 0 4px rgba(18, 158, 41, 0.6);
+      outline: 0 none;
+    }
+  `}
+
+  ${props => props.isValid === 'false' && css`
+  input:focus {
+    border: 1px solid #054A91;
+    box-shadow: 0 1px 1px rgba(207, 202, 198, 0.075)inset, 0 0 8px rgba(32, 18, 158, 0.6);
+    outline: 0 none;
+  }
+  `}
+
   button {
     border: 0;
     padding: 8px 12px;
@@ -56,6 +85,8 @@ const Box = styled.div`
     border-radius: 10000px;
     background-color: #6F92BB;
   }
+
+ 
 
 `;
 

@@ -1,14 +1,33 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Box from '../Box';
 
 export const ProfileRelationsBoxWrapper = styled(Box)`
-  ul {
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr; 
-    max-height: 220px;
-    list-style: none;
-  }
+
+
+  ${props => props.isClick === 'true' && css`
+    ul {
+      display: grid;
+      grid-gap: 8px;
+      grid-template-columns: 1fr 1fr 1fr; 
+      list-style: none;
+      margin-bottom: 10px;
+      transition: all 300ms ease-in-out;
+    }
+  `}
+
+  ${props => props.isClick === 'false' && css`
+    ul {
+      display: grid;
+      grid-gap: 8px;
+      grid-template-columns: 1fr 1fr 1fr; 
+      list-style: none;
+      margin-bottom: 10px; 
+      transition: all 300ms ease-in-out;
+      max-height: 220px;
+      overflow-y: hidden;
+    }
+`}
+
   img {
     object-fit: cover;
     background-position: center center;
@@ -16,6 +35,16 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     height: 100%;
     position: relative;
   }
+
+  span{
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    &:hover {
+      color: orange;
+      text-decoration: underline;
+    }
+  }
+
   ul li a {
     display: inline-block;
     height: 102px;
